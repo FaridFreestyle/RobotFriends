@@ -27,6 +27,7 @@ export default Card;*/
 	);
 }
 export default Card;*/
+
 //or
 const Card = ({name,email,id})=>{
 	return (
