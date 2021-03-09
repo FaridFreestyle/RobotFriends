@@ -14,8 +14,13 @@ class App extends Component{
 		}
 	}
 	//pour remplir la liste
-	componentDidMount(){
+	/*componentDidMount(){
 		this.setState({robots:robots})
+	}*/
+	componentDidMount(){
+		fetch('https://jsonplaceholder.typicode.com/users')
+		.then(response=> response.json())
+		.then(users=> {this.setState({robots:users})});
 	}
 	onSearchChange=(event)=>{
 		//console.log(event.target.value);
@@ -27,7 +32,7 @@ class App extends Component{
 	}
 	render(){		
 		const filteredRobots = this.state.robots.filter(robot=>{ 
-			return robot.name.toLowerCase().includes(this.state.searchfield)
+			return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
 		})
 
 		return (
